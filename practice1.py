@@ -30,3 +30,26 @@ print(df1.tail())
 print(df2.tail())
 print(df3.tail())
 
+
+# 저장된 데이터 프레임에 새로운 열 추가 (주식의 중간값)
+
+df1['kor_Mid'] = (df1['kor_High'] + df1['kor_Low'])/2
+df2['usa_Mid'] = (df2['usa_High'] + df2['usa_Low'])/2
+df2['eur_Mid'] = (df3['eur_High'] + df3['eur_Low'])/2
+
+print(df1.tail())
+print(df2.tail())
+print(df3.tail())
+
+# 하나의 데이터 프레임으로 합친 뒤, 최신순으로 정렬 (숙제)
+
+import pandas as pd
+mdf1 = pd.merge(df1,df2, on='Date')
+mdf1.head()
+
+mdf = pd.merge(mdf1, df3, on='Date')
+mdf.head()
+
+sort_mdf = pd.sort_index(ascending=False)
+
+sort_mdf.head()
